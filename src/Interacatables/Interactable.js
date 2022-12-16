@@ -6,10 +6,10 @@ export default function Interaction(props) {
     const [hover,setHover] = useState(false)
     const interactableOnHover = useRef()
 
-    const handleHover = () => {
+    const handleHover = (delta) => {
       if(hover){
         if(interactableOnHover.current.position.y <=displacement){
-          interactableOnHover.current.position.y += displacement
+          interactableOnHover.current.position.y += 0.5 *delta
         }
       }
       else{
@@ -23,7 +23,8 @@ export default function Interaction(props) {
     }
 
     useFrame((state,delta)=>{
-      handleHover()
+      handleHover(delta)
+      
       
     })
 
@@ -33,10 +34,9 @@ export default function Interaction(props) {
       <group scale={[2.23, 4.76, 2.23]}>
         <mesh onPointerOver={()=>setHover(true)}
             onPointerOut = {()=>setHover(false)}
-            onClick ={()=>handleClick("www.google.com")}
+            onClick = {()=>{handleClick("https://google.com")}}
           geometry={nodes.Plane001.geometry}
           material={materials["Material.001"]}
-          
         />
         <mesh
           geometry={nodes.Plane001_1.geometry}
