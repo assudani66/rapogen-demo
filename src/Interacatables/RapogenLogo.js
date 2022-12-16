@@ -44,7 +44,9 @@ export default function RapogenLogo(props) {
             onPointerOut = {()=>setHover(false)}
             onClick = {()=>{handleClick("https://google.com")}}
       />
-       <Html>{hover && <div class="container"> <p>go to this link</p><a href="http//:google.com"></a></div>}</Html>
+    <Html>{hover && <div class="container" ><h2 className="heading">About Us</h2><p className="info">We are building plug-n-play Metaverse Suites for various Business use cases.
+know more 👈</p></div>}</Html>
+    
     </group>
   );
 }

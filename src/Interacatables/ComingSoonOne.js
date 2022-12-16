@@ -1,10 +1,6 @@
 import React, { useRef ,useState} from "react";
-import { useGLTF } from "@react-three/drei";
+import { useGLTF,Html } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-
-
-
-
 
 export default function ComingSoonOne(props) {
     const [hover,setHover] = useState(false)
@@ -28,7 +24,6 @@ export default function ComingSoonOne(props) {
   useFrame((state,delta)=>{
     handleHover(delta)
     interactableOnHover.current.rotation.y += delta * 0.5
-    
   })
 
   const { nodes, materials } = useGLTF("/comingSoonOne.glb");
@@ -45,6 +40,8 @@ export default function ComingSoonOne(props) {
         
         scale={[0.27, 0.72, 0.27]}
       />
+          <Html>{hover && <div class="container" ><h2 className="heading">About Us</h2><p className="info">We are building plug-n-play Metaverse Suites for various Business use cases.
+know more 👈</p></div>}</Html>
     </group>
   );
 }

@@ -1,5 +1,5 @@
 import React, { useRef ,useState} from "react";
-import { useGLTF } from "@react-three/drei";
+import { useGLTF,Html } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 
 export default function Portfolio(props) {
@@ -36,6 +36,8 @@ export default function Portfolio(props) {
         geometry={nodes.Portfolio.geometry}
         material={materials.Material}
       />
+          <Html>{hover && <div class="container" ><h2 className="heading">About Us</h2><p className="info">We are building plug-n-play Metaverse Suites for various Business use cases.
+know more 👈</p></div>}</Html>
     </group>
   );
 }

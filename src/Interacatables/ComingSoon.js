@@ -1,9 +1,6 @@
 import React, { useRef ,useState } from "react";
-import { useGLTF } from "@react-three/drei";
+import { useGLTF ,Html } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
-
-
-
 
 export default function ComingSoon(props) {
     const [hover,setHover] = useState(false)
@@ -41,7 +38,8 @@ export default function ComingSoon(props) {
         geometry={nodes.Coming_soon001.geometry}
         material={materials["Coming Soon"]}
       />
-      
+    <Html>{hover && <div class="container" ><h2 className="heading">About Us</h2><p className="info">We are building plug-n-play Metaverse Suites for various Business use cases.
+know more 👈</p></div>}</Html>
     </group>
   );
 }
