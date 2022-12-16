@@ -20,7 +20,7 @@ export default function Experience() {
     })
     // const nonInteractableObject = useLoader(GLTFLoader,"./map.glb")
     return <>
-        <Perf position="top-left" />
+        {/* <Perf position="top-left" /> */}
         <directionalLight position={[1, 2, 3]} intensity={1.5} />
         <ambientLight intensity={0.5} />
         <MapControls makeDefault/>
