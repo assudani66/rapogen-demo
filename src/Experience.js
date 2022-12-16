@@ -4,9 +4,15 @@ import { useRef } from 'react'
 import { Perf } from 'r3f-perf'
 import { useLoader } from '@react-three/fiber/dist/react-three-fiber.cjs'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
-import Interaction from './Interacatables/Interactable'
 import NonInteractable from './Noninteractable'
 import RapogenLogo from './Interacatables/RapogenLogo'
+
+import ContactUs from './Interacatables/ContactUs'
+import Portfolio from './Interacatables/Portfolio'
+import Sphere from './Interacatables/Sphere'
+import ComingSoon from './Interacatables/ComingSoon'
+import ComingSoonOne from './Interacatables/ComingSoonOne'
+
 
 export default function Experience() {
     const cube = useRef()
@@ -18,11 +24,17 @@ export default function Experience() {
         <directionalLight position={[1, 2, 3]} intensity={1.5} />
         <ambientLight intensity={0.5} />
         <MapControls makeDefault/>
-        <Interaction />
+        {/* <Interaction /> */}
         <NonInteractable/>
         <RapogenLogo/>
-        <Sparkles count={1000} scale={20} size={6} speed={0.4} />
+        <ContactUs/>
+        <Sphere/>
+        <ComingSoon/>
+        <ComingSoonOne/>
+        <Sparkles count={1000} scale={50} size={6} speed={0.4} />
+        <Portfolio/>
     </>
+
 }
 // Camera Animation
 // https://medium.com/@zmommaerts/animate-a-camera-in-react-three-fiber-7398326dad5d

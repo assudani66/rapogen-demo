@@ -1,5 +1,5 @@
 import React, { useRef,useState } from "react";
-import { Sparkles, useGLTF } from "@react-three/drei";
+import { Sparkles, useGLTF,Html } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 
 export default function RapogenLogo(props) {
@@ -31,7 +31,6 @@ export default function RapogenLogo(props) {
   useFrame((state,delta)=>{
     handleHover(delta)
     interactableOnHover.current.rotation.y += delta * 0.6
-    
   })
 
   return (
@@ -45,7 +44,7 @@ export default function RapogenLogo(props) {
             onPointerOut = {()=>setHover(false)}
             onClick = {()=>{handleClick("https://google.com")}}
       />
-      <Sparkles size={2} count = {100} />
+       <Html>{hover && <div class="container"> <p>go to this link</p><a href="http//:google.com"></a></div>}</Html>
     </group>
   );
 }
