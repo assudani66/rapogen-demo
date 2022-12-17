@@ -42,8 +42,7 @@ export default function ContactUs(props) {
         material={materials["Contact us"]}
         
       />
-          <Html>{hover && <div class="container" ><h2 className="heading">About Us</h2><p className="info">We are building plug-n-play Metaverse Suites for various Business use cases.
-know more 👈</p></div>}</Html>
+          <Html>{hover && <div class="container" ><h2 className="heading">Contact Us</h2><p className="info">For a quick demo and to reach us please fill and submit the below form or email us at info@rapogen.com</p></div>}</Html>
     </group>
   );
 }

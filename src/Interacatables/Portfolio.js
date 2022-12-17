@@ -32,12 +32,11 @@ export default function Portfolio(props) {
       <mesh
       onPointerOver={()=>setHover(true)}
       onPointerOut = {()=>setHover(false)}
-      onClick = {()=>{handleClick("https://google.com")}}
+      onClick = {()=>{handleClick("https://www.spatial.io/s/PannVerse-by-Poorvaa-Productions-6352b6d196ea7a00015b7f42?share=5145976202741261364")}}
         geometry={nodes.Portfolio.geometry}
         material={materials.Material}
       />
-          <Html>{hover && <div class="container" ><h2 className="heading">About Us</h2><p className="info">We are building plug-n-play Metaverse Suites for various Business use cases.
-know more 👈</p></div>}</Html>
+          <Html>{hover && <div class="container" ><h2 className="heading">Portfolio</h2><p className="info">Few of our creations</p></div>}</Html>
     </group>
   );
 }

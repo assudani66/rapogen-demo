@@ -40,8 +40,7 @@ export default function ComingSoonOne(props) {
         
         scale={[0.27, 0.72, 0.27]}
       />
-          <Html>{hover && <div class="container" ><h2 className="heading">About Us</h2><p className="info">We are building plug-n-play Metaverse Suites for various Business use cases.
-know more 👈</p></div>}</Html>
+          <Html>{hover && <div class="container" ><h2 className="heading">Coming soon!</h2><p className="info"></p></div>}</Html>
     </group>
   );
 }
