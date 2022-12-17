@@ -42,7 +42,7 @@ export default function RapogenLogo(props) {
         material={materials["Rapogen T Shirt"]}
         onPointerOver={()=>setHover(true)}
             onPointerOut = {()=>setHover(false)}
-            onClick = {()=>{handleClick("https://google.com")}}
+            // onClick = {()=>{handleClick("https://google.com")}}
       />
     <Html>{hover && <div class="container" ><h2 className="heading">About Us</h2><p className="info">We are building plug-n-play Metaverse Suites for various Business use cases.</p></div>}</Html>
     

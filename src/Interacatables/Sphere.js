@@ -38,7 +38,7 @@ export default function Sphere(props) {
         receiveShadow
         onPointerOver={()=>setHover(true)}
             onPointerOut = {()=>setHover(false)}
-            onClick = {()=>{handleClick("https://google.com")}}
+            // onClick = {()=>{handleClick("https://google.com")}}
         geometry={nodes.Sphere.geometry}
         material={materials.Team}
       />

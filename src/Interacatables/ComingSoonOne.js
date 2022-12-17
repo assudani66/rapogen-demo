@@ -34,7 +34,7 @@ export default function ComingSoonOne(props) {
         receiveShadow
         onPointerOver={()=>setHover(true)}
         onPointerOut = {()=>setHover(false)}
-        onClick = {()=>{handleClick("https://google.com")}}
+        // onClick = {()=>{handleClick("https://google.com")}}
         geometry={nodes.Coming_soon002.geometry}
         material={materials["Coming Soon"]}
         
