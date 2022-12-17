@@ -37,7 +37,7 @@ export default function ContactUs(props) {
         receiveShadow
         onPointerOver={()=>setHover(true)}
             onPointerOut = {()=>setHover(false)}
-            onClick = {()=>{handleClick("https://google.com")}}
+            onClick = {()=>{handleClick("https://forms.zohopublic.in/rapogen/form/Betaaccesssignup/formperma/IIt-RwlrTEC40lUuXYVTP3xpgyQ6ZSeG7tkGBKLlluQ")}}
         geometry={nodes.Contact_us.geometry}
         material={materials["Contact us"]}
         
