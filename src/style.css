@@ -16,7 +16,7 @@ body{
 .container {
     position: relative;
 width: 300px;
-height: 120px;
+height: 150px;
 
 background: linear-gradient(113.54deg, #350F2D 14.16%, rgba(53, 15, 45, 0) 88.92%);
 border-radius: 9px;
@@ -25,9 +25,8 @@ border-radius: 9px;
 .heading {
     position: absolute;
 width: 100px;
-height: 15px;
+height: 100Px;
 left: 14px;
-top: 12px;
 
 font-family: 'Inter';
 font-style: normal;
@@ -55,4 +54,9 @@ line-height: 15px;
 
 color: #FFFFFF;
 
+}
+
+.image{
+    margin-top: 10px;
+    margin-left: 20px;
 }

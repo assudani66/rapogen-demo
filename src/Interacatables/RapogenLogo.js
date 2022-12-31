@@ -8,7 +8,6 @@ export default function RapogenLogo(props) {
   useFrame((state,delta)=>{
     
   })
- 
 
   const [hover,setHover] = useState(false)
   const interactableOnHover = useRef()

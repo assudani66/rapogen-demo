@@ -31,19 +31,25 @@ export default function ContactUs(props) {
 
   const { nodes, materials } = useGLTF("/ContactUs.glb");
   return (
-    <group {...props} dispose={null} position={[-3.23, 0.99, 6.54]} ref={interactableOnHover}>
-      <mesh
-        castShadow
-        receiveShadow
-        onPointerOver={()=>setHover(true)}
-            onPointerOut = {()=>setHover(false)}
-            onClick = {()=>{handleClick("https://forms.zohopublic.in/rapogen/form/Betaaccesssignup/formperma/IIt-RwlrTEC40lUuXYVTP3xpgyQ6ZSeG7tkGBKLlluQ")}}
-        geometry={nodes.Contact_us.geometry}
-        material={materials["Contact us"]}
-        
-      />
-          <Html>{hover && <div class="container" ><h2 className="heading">Contact Us</h2><p className="info">For a quick demo and to reach us please fill and submit the below form or email us at info@rapogen.com</p></div>}</Html>
-    </group>
+    
+    <group {...props} dispose={null}>
+    <mesh
+    ref={interactableOnHover}
+      castShadow
+      receiveShadow
+      geometry={nodes.Concert.geometry}
+      material={materials.Concert}
+      position={[-3.47, 1.13, 6.61]}
+      onPointerOver={()=>setHover(true)}
+      onPointerOut = {()=>setHover(false)}
+      onClick = {()=>{handleClick("https://forms.zohopublic.in/rapogen/form/Betaaccesssignup/formperma/IIt-RwlrTEC40lUuXYVTP3xpgyQ6ZSeG7tkGBKLlluQ")}}
+      rotation={[-Math.PI, 0.89, -Math.PI]}
+      scale={0.03}
+    >
+      <Html>{hover && <div className="container" ><h2 className="heading">Music</h2><br/><img className="image" src="https://ik.imagekit.io/Phantomcat20/ecomerse.png?ik-sdk-version=javascript-1.4.3&updatedAt=1672495687764" alt="music"/></div>}</Html>
+    </mesh>
+  </group>
+
   );
 }
 

@@ -1,19 +1,21 @@
-import React, { useRef ,useState} from "react";
-import { useGLTF,Html } from "@react-three/drei";
+import React, { useRef, useState } from "react";
+import { Html,useGLTF } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 
 export default function ComingSoonOne(props) {
-    const [hover,setHover] = useState(false)
+  const { nodes, materials } = useGLTF("/comingSoon.glb");
+
+  const [hover,setHover] = useState(false)
   const interactableOnHover = useRef()
 
   const handleHover = (delta) => {
     if(hover){
-      if(interactableOnHover.current.position.y <=1.4 + 0.1){
+      if(interactableOnHover.current.position.y <=1.59 + 0.1){
         interactableOnHover.current.position.y += 0.5 *delta
       }
     }
     else{
-      interactableOnHover.current.position.y = 1.44
+      interactableOnHover.current.position.y = 1.59
     }
   }
 
@@ -24,25 +26,39 @@ export default function ComingSoonOne(props) {
   useFrame((state,delta)=>{
     handleHover(delta)
     interactableOnHover.current.rotation.y += delta * 0.5
+    
   })
 
-  const { nodes, materials } = useGLTF("/comingSoonOne.glb");
   return (
-    <group {...props} dispose={null} ref={interactableOnHover} position={[-7.32, 1.44, 2.47]}>
-      <mesh
-        castShadow
-        receiveShadow
-        onPointerOver={()=>setHover(true)}
-        onPointerOut = {()=>setHover(false)}
-        // onClick = {()=>{handleClick("https://google.com")}}
-        geometry={nodes.Coming_soon002.geometry}
-        material={materials["Coming Soon"]}
-        
-        scale={[0.27, 0.72, 0.27]}
-      />
-          <Html>{hover && <div class="container" ><h2 className="heading">Coming soon!</h2><p className="info"></p></div>}</Html>
+    <group {...props} dispose={null}>
+      <group position={[-6.52, 1.59, -2.3]} scale={[0.32, 1, 0.32]}
+      ref={interactableOnHover}
+      onPointerOver={()=>setHover(true)}
+      onPointerOut = {()=>setHover(false)}
+      onClick = {()=>{handleClick("https://forms.zohopublic.in/rapogen/form/Betaaccesssignup/formperma/IIt-RwlrTEC40lUuXYVTP3xpgyQ6ZSeG7tkGBKLlluQ")}}>
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Cube002.geometry}
+          material={materials.Building}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Cube002_1.geometry}
+          material={materials.Rails}
+        />
+        <mesh
+          castShadow
+          receiveShadow
+          geometry={nodes.Cube002_2.geometry}
+          material={materials.Window}
+        >
+          <Html>{hover && <div className="container" ><h2 className="heading">real Estate</h2><br/><img className="image" src="https://ik.imagekit.io/Phantomcat20/RealState.png?ik-sdk-version=javascript-1.4.3&updatedAt=1672495687819" alt="ecommerse"/></div>}</Html>
+        </mesh>
+      </group>
     </group>
   );
 }
 
-useGLTF.preload("/comingSoonOne.glb");
+useGLTF.preload("/comingSoon.glb");

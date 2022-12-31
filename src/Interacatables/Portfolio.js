@@ -36,7 +36,7 @@ export default function Portfolio(props) {
         geometry={nodes.Portfolio.geometry}
         material={materials.Material}
       />
-          <Html>{hover && <div class="container" ><h2 className="heading">Portfolio</h2><p className="info">Few of our creations</p></div>}</Html>
+          <Html>{hover && <div className="container" ><h2 className="heading">E-commerce</h2><br/><img className="image" src="https://ik.imagekit.io/Phantomcat20/ecomerse.png?ik-sdk-version=javascript-1.4.3&updatedAt=1672495687764" alt="music"/></div>}</Html>
     </group>
   );
 }
