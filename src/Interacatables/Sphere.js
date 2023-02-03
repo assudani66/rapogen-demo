@@ -65,7 +65,7 @@ export default function Sphere(props) {
       }
 
       if(clicked===false){
-        !devMode && state.camera.position.lerp(defalutState.set(10, 20, -12),0.01)
+        !devMode && state.camera.position.lerp(defalutState.set(15, 27, -12),0.01)
         state.camera.lookAt(defalutStateLookAt.set(-3.6,-2.0,3.3))
         devMode && console.log(lookAtRef.current.position)
         devMode && console.log(state.camera.position)
