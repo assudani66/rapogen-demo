@@ -1,53 +1,96 @@
-import React, { useRef ,useState} from "react";
-import { useGLTF ,Html} from "@react-three/drei";
 
-import { useFrame } from "@react-three/fiber";
+import React, { useMemo, useRef ,useState} from "react";
+import { useGLTF ,Html, TransformControls, Plane, Box, Tube} from "@react-three/drei";
+import { useFrame, useThree } from "@react-three/fiber";
+import ReusableCard from "../ResuableCard";
+import * as THREE from "three"
+import {useControls} from 'leva'
 
-
-
-
+const info = {
+  heading: "Movies",
+  paragraph:
+    "We are building plug-n-play Metaverse Suites for various Business use cases.",
+  imgSrc:
+    "https://ik.imagekit.io/Phantomcat20/Eccomerce.png?ik-sdk-version=javascript-1.4.3&updatedAt=1675192611393"
+};
 
 export default function Sphere(props) {
+  const { posX, posY, posZ, devMode} = useControls({
+    posX: {
+      value: 4,
+      min: 0,
+      max: 10,
+      step: 0.1,
+    },
+    posY: {
+      value: 4,
+      min: 0,
+      max: 10,
+      step: 0.1,
+    },
+    posZ : {
+      value: 4,
+      min: 0,
+      max: 10,
+      step: 0.1,
+    },
+    devMode : false
+  })
+  
     const [hover,setHover] = useState(false)
-    const interactableOnHover = useRef()
+    const vec = new THREE.Vector3()
+    const [clicked,setClicked] = useState(false)
+    const defalutState = new THREE.Vector3()
+    const focusRef = useRef()
   
-    const handleHover = (delta) => {
-      if(hover){
-        if(interactableOnHover.current.position.y <=1.27+0.1){
-          interactableOnHover.current.position.y += 0.5 *delta
-        }
-      }
-      else{
-        interactableOnHover.current.position.y = 1.27
-      }
-    }
-
     const handleClick = (url) =>{
-      window.open(url, '_blank', 'noopener,noreferrer')
+      setClicked(!clicked)
     }
-  
+    const handleClicked = (state) => {
+      const focusPoint = new THREE.Vector3()
+      focusPoint.set(4.2,1.5,5)
+      state.camera.lookAt(focusPoint)
+      const focusPosition = {x: 12.457295668673545, y: 2.04976933522242, z: 3.878114071691255}
+      state.camera.position.lerp(vec.set(focusPosition.x,focusPosition.y,focusPosition.z),0.01)
+      console.log(state.camera.rotation)
+      state.camera
+      state.camera.updateProjectionMatrix()
+    }
     useFrame((state,delta)=>{
-      handleHover(delta)
-      interactableOnHover.current.rotation.y += delta * 0.6
+      focusRef.current.rotation.y += delta * 0.6
+      
+      if(clicked){
+        handleClicked(state)
+      }
+      if(clicked===false){
+        !devMode && state.camera.position.lerp(defalutState.set(29, 29, -27),0.01)
+        devMode && console.log(state.camera.position)
+      }
     })
+
   const { nodes, materials } = useGLTF("/Sphere.glb");
   return (
-    <group {...props} dispose={null} position={[5, 1.27, 6.63]} ref={interactableOnHover} scale = {2.55}>
+    <group >
+      <Box material-color="hotpink" position={[posX,posY,posZ]}  onClick={()=>setClicked(!clicked)}/>
+    <group {...props} dispose={null} position={[5, 1.27, 6.63]}  scale = {2.55}  ref={focusRef}>
       <mesh
         castShadow
         receiveShadow
-        onPointerOver={()=>setHover(true)}
-            onPointerOut = {()=>setHover(false)}
-            onClick = {()=>{handleClick("https://google.com")}}
+            onClick={(e) => { 
+              handleClick()
+              }}   
         geometry={nodes.Sphere.geometry}
         material={materials.Team}
       />
-      <Html>{hover && <div class="container" ><h2 className="heading">Team</h2><p className="info">
-Sriram Venkatesh-CoFounder<br/>
-Vinoth Ravichandran-CoFounder<br/>
-Akshay-CoFounder</p></div>}</Html>
+          
+    </group>
     </group>
   );
 }
 
 useGLTF.preload("/Sphere.glb");
+
+{/* <Html>{clicked && <div class="container" ><h2 className="heading">Team</h2><p className="info">
+Sriram Venkatesh-CoFounder<br/>
+Vinoth Ravichandran-CoFounder<br/>
+Akshay-CoFounder</p></div>}</Html> */}

@@ -1,18 +1,16 @@
 import { useFrame } from '@react-three/fiber'
-import { MapControls, OrbitControls, Sparkles } from '@react-three/drei'
+import { MapControls, OrbitControls, Sparkles, useThree} from '@react-three/drei'
 import { useRef } from 'react'
 import { Perf } from 'r3f-perf'
 import { useLoader } from '@react-three/fiber/dist/react-three-fiber.cjs'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader'
 import NonInteractable from './Noninteractable'
 import RapogenLogo from './Interacatables/RapogenLogo'
-
 import ContactUs from './Interacatables/ContactUs'
 import Portfolio from './Interacatables/Portfolio'
 import Sphere from './Interacatables/Sphere'
 import ComingSoon from './Interacatables/ComingSoon'
 import ComingSoonOne from './Interacatables/ComingSoonOne'
-
 
 export default function Experience() {
     const cube = useRef()

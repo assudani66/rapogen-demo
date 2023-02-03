@@ -56,3 +56,37 @@ line-height: 15px;
 color: #FFFFFF;
 
 }
+
+.ReusableCard {
+    width: 600px;
+    height: auto;
+    font-family: "Poppins", sans-serif;
+    background: linear-gradient(
+      107.74deg,
+      #57264c 23.57%,
+      rgba(67, 0, 52, 0.72) 85.52%
+    );
+    box-shadow: inset 3.34946px 3.34946px 3.34946px #742463;
+    border-radius: 26.7957px;
+    padding: 63px;
+    padding-top: 10px;
+  }
+  
+  .Heading {
+    font-size: 60px;
+    font-weight: bold;
+    color: #fcdcff;
+  }
+  
+  .Paragraph {
+    font-size: 40px;
+    color: #ffb6c3;
+  }
+  
+  .KnowMore {
+    font-size: 36px;
+    font-weight: lighter;
+    text-decoration: underline;
+    color: #ec90a0;
+  }
+  

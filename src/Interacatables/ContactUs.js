@@ -4,7 +4,7 @@ import { useFrame } from "@react-three/fiber";
 
 
 export default function ContactUs(props) {
-
+  // {x: 0.11977469624782344, y: 1.5778825491786426, z: 3.4591412611725136}
   const [hover,setHover] = useState(false)
   const interactableOnHover = useRef()
 

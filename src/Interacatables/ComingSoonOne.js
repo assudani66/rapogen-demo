@@ -3,6 +3,7 @@ import { useGLTF,Html } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 
 export default function ComingSoonOne(props) {
+  // {x: 0.17937379888186733, y: 2.1395652221497317, z: -0.9120086755675736}
     const [hover,setHover] = useState(false)
   const interactableOnHover = useRef()
 

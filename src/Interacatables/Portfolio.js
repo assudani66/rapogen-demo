@@ -3,6 +3,7 @@ import { useGLTF,Html } from "@react-three/drei";
 import { useFrame } from "@react-three/fiber";
 
 export default function Portfolio(props) {
+  // {x: -3.038557147441324, y: 1.6589473918803002, z: 0.12150674772185596}
   const [hover,setHover] = useState(false)
   const interactableOnHover = useRef()
 
