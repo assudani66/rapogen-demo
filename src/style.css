@@ -40,8 +40,18 @@ line-height: 15px;
 color: #FFFFFF;
 }
 
+.logo{
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0%);
+  z-index: 1;
+  width : 400px;
+  height: auto;
+}
+
 .info{
-    position: absolute;
+position: absolute;
 width: 200px;
 height: 60px;
 left: 15px;
@@ -58,8 +68,8 @@ color: #FFFFFF;
 }
 
 .ReusableCard {
-    width: 600px;
-    height: auto;
+    width: 400px;
+    height: 500px;
     font-family: "Poppins", sans-serif;
     background: linear-gradient(
       107.74deg,
@@ -70,23 +80,73 @@ color: #FFFFFF;
     border-radius: 26.7957px;
     padding: 63px;
     padding-top: 10px;
+    position: absolute;
+    top: 10%;
+    left: 75%;
+    transform: translate(-50%, 0%);
+    z-index: 2;
   }
   
   .Heading {
-    font-size: 60px;
+    font-size: 40px;
     font-weight: bold;
     color: #fcdcff;
   }
   
   .Paragraph {
-    font-size: 40px;
+    font-size: 20px;
     color: #ffb6c3;
   }
   
   .KnowMore {
-    font-size: 36px;
+    font-size: 20px;
     font-weight: lighter;
     text-decoration: underline;
+    margin-top: 50px;
     color: #ec90a0;
   }
+  .img {
+    width: 400px;
+    height: auto;
+  }
+
+  .fade-container {
+    opacity: 0;
+    animation: fadeIn 2s ease-in forwards;
+  }
+  
+  .fade-in {
+    opacity: 1;
+  }
+  
+  @keyframes fadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  
+  .fade-out {
+    opacity: 0;
+    animation: fadeOut 1s ease-out forwards;
+  }
+  
+  @keyframes fadeOut {
+    0% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+
+  
+  .canvas{ 
+    width: "100vw";
+    height: "100vh" 
+    }
+  
+  
   

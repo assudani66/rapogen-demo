@@ -18,30 +18,31 @@ export default function Sphere(props) {
   const { posX, posY, posZ, devMode} = useControls({
     posX: {
       value: 4,
-      min: 0,
+      min: -10,
       max: 10,
       step: 0.1,
     },
     posY: {
       value: 4,
-      min: 0,
+      min: -10,
       max: 10,
       step: 0.1,
     },
     posZ : {
       value: 4,
-      min: 0,
+      min: -10,
       max: 10,
       step: 0.1,
     },
     devMode : false
   })
-  
     const [hover,setHover] = useState(false)
     const vec = new THREE.Vector3()
     const [clicked,setClicked] = useState(false)
     const defalutState = new THREE.Vector3()
     const focusRef = useRef()
+    const lookAtRef = useRef()
+    const defalutStateLookAt = new THREE.Vector3()
   
     const handleClick = (url) =>{
       setClicked(!clicked)
@@ -53,7 +54,7 @@ export default function Sphere(props) {
       const focusPosition = {x: 12.457295668673545, y: 2.04976933522242, z: 3.878114071691255}
       state.camera.position.lerp(vec.set(focusPosition.x,focusPosition.y,focusPosition.z),0.01)
       console.log(state.camera.rotation)
-      state.camera
+
       state.camera.updateProjectionMatrix()
     }
     useFrame((state,delta)=>{
@@ -62,28 +63,32 @@ export default function Sphere(props) {
       if(clicked){
         handleClicked(state)
       }
+
       if(clicked===false){
-        !devMode && state.camera.position.lerp(defalutState.set(29, 29, -27),0.01)
+        !devMode && state.camera.position.lerp(defalutState.set(10, 20, -12),0.01)
+        state.camera.lookAt(defalutStateLookAt.set(-3.6,-2.0,3.3))
+        devMode && console.log(lookAtRef.current.position)
         devMode && console.log(state.camera.position)
+        
       }
     })
 
   const { nodes, materials } = useGLTF("/Sphere.glb");
   return (
     <group >
-      <Box material-color="hotpink" position={[posX,posY,posZ]}  onClick={()=>setClicked(!clicked)}/>
-    <group {...props} dispose={null} position={[5, 1.27, 6.63]}  scale = {2.55}  ref={focusRef}>
-      <mesh
-        castShadow
-        receiveShadow
-            onClick={(e) => { 
-              handleClick()
-              }}   
-        geometry={nodes.Sphere.geometry}
-        material={materials.Team}
-      />
-          
-    </group>
+      <Box material-color="hotpink" position={[posX,posY,posZ]}  onClick={()=>setClicked(!clicked)} ref={lookAtRef}/>
+        <group {...props} dispose={null} position={[5, 1.27, 6.63]}  scale = {2.55}  ref={focusRef}>
+          <mesh
+            castShadow
+            receiveShadow
+                onClick={(e) => { 
+                  handleClick()
+                  }}   
+            geometry={nodes.Sphere.geometry}
+            material={materials.Team}
+          />
+              
+        </group>
     </group>
   );
 }
